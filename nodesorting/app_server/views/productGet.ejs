@@ -1,0 +1,95 @@
+<div class="ana-div">
+    
+   
+  <h3 class="h3-ort">ÜRÜN Güncelleme</h3>
+  <div class="form-boyut">
+      <form action="/product/productGet/update/<%= urunler._id %>"  method="POST" enctype="multipart/form-data">
+
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-text"><i class="fas fa-tags"></i></span>
+              <input value="<%= urunler.ad %>" class="form-control" type="text" name="ad" id="name" placeholder="Ürün Adı">
+          </div>
+          <div style="margin-bottom: 25px" class="input-group">
+              <span class="input-group-text"><i class="fas fa-tags"></i></span>
+              <input value="<%= urunler.content %>" class="form-control"  type="text" name="content" id="content" placeholder="Ürün Açıklaması" >
+          </div>
+
+          <div id="sizeguide-popup" class="sizeguide">
+            <a id="span-x" href="#"><i  class="fas fa-times span-close"></i></a>
+            <img src="../../public/image/guidesize.JPG" alt="">
+          </div>
+         
+          <div style="margin-bottom: 25px" class="input-group">
+              <span class="input-group-text"><i class="fas fa-tags"></i></span>
+              <input value="<%= urunler.fiyat %>" class="form-control" type="number" name="fiyat" id="fiyat" placeholder="Ürün Fiyatı">
+          </div>
+          <div style="margin-bottom: 25px" class="input-group">
+
+            <select value="<%= urunler.category %>" name="category" class="mdb-select md-form select-body">
+              <option value="" disabled selected hidden>Kategori Belirleyin.</option>
+              
+              <% for(var j=0; j<categorylist.length; j++){%>
+                <option><%= categorylist[j].categoryadd %></option>
+                <%}%>
+              
+            </select>
+            &nbsp;<a class="btn cat-btn" id="cat-add" href="/categoryadd">Kategori ekle</a>
+          </div>
+          <div style="margin-bottom: 25px" class="input-group ">
+            <select value="<%= urunler.cinsiyet %>" name="cinsiyet" class="form-select select-body" aria-label="Default select example">
+              <option selected disabled hidden >Cinsiyet seçiniz</option>
+              <option >Kadın</option>
+              <option >Erkek</option>
+            </select>
+        </div>
+
+
+        <div style="margin-bottom: 25px" class="input-group ">
+          <select value="<%= urunler.color %>" name="color" class="form-select select-body" aria-label="Default select example">
+            <option selected disabled hidden >Renk Seçiniz</option>
+            <option >Siyah</option>
+            <option >Beyaz</option>
+            <option >Kırmızı</option>
+            <option >Mavi</option>
+            <option >Yeşil</option>
+            <option >Sarı</option>
+            <option >Turuncu</option>
+            <option >Mor</option>
+            <option >Pembe</option>
+            <option >Gri</option>
+            <option >Lacivert</option>
+            <option >Kahverengi</option>
+            <option >Bordo</option>
+          </select>
+      </div>
+
+        
+
+        <div style="margin-bottom: 25px" class="input-group ">
+          <select value="<%= urunler.size %>" name="size" class="form-select select-body" aria-label="Default select example">
+            <option selected disabled hidden>Beden Seçimi Yapınız</option>
+            <option >X-Small</option>
+            <option >Small</option>
+            <option >Medium</option>
+            <option >Large</option>
+            <option >X-Large</option>
+            <option >2X-Large</option>
+            
+          </select>&nbsp;<a class="btn cat-btn" id="size-button" href="#">Size Guide</a>
+      </div>
+
+           <div style="margin-bottom: 25px" class="input-group">
+              <label for="image">Fotoğraf Yükleyin</label>
+              <input value="<%= urunler.image %>" type="file" name="image" id="image" class="form-control-file">
+          </div> 
+          <!-- <div style="margin-bottom: 25px" class="form-group">
+              <label for="image">Upload Image</label>
+              <input type="file" name="images" id="image" class="form-control-file" multiple>
+          </div>  -->
+          <input type="submit" class="btn btn-dark" value="Update">
+
+      </form> 
+  </div>
+  
+
+</div>

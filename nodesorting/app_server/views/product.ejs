@@ -1,0 +1,201 @@
+ <div class="ana-div">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Ürün Listesi</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#productform" role="tab" aria-controls="nav-profile" aria-selected="false">Ürün Girişi</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Bilgilendirme</a>
+
+        </div>
+
+
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <!-- Ürün Ekleme Formu Başlangıcı   -->
+
+        <div class="tab-pane fade show active container" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div>
+              <h3 class="h3-ort" >Ürün Listesi</h3>
+          </div>
+
+          <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Ürün Adı</th>
+                    <th scope="col">Açıklama</th>
+                    <th scope="col">Fiyat</th>
+                    <th scope="col">Kategori</th>
+                    <th scope="col">Cinsiyet</th>
+                    <th scope="col">Beden</th>
+                    <th scope="col">Renk</th>
+                    <th scope="col">Görsel</th>
+                    <th scope="col">İşlemler</th>
+
+                  </tr>
+            </thead>
+            <tbody>
+                <tbody>
+                    <% for(var i=0; i<urunler.length; i++){%>
+                    <tr>
+                      <td><%=urunler[i].ad %></td>
+                      <td><%=urunler[i].content %></td>
+                      <td><%=urunler[i].fiyat %></td>
+                      <td><%=urunler[i].category %></td>
+                      <td><%=urunler[i].cinsiyet %></td>
+                      <td><%=urunler[i].size %></td>
+                      <td><%=urunler[i].color %></td>
+                      <td ><img class="urun-img" src="<%=urunler[i].file.split(',')[0] %>" alt=""></td>
+
+                      <td>
+                        <a href="/product/productDelete/<%=urunler[i]._id %>" class="dlt-btn"><i class="far fa-trash-alt"></i></a>
+                        <a href="/product/productGet/<%=urunler[i]._id %>" class="edit-btn"><i class="fas fa-pencil-alt"></i></a>
+                      </td>
+                    </tr>
+                    <%}%>
+                  </tbody>
+            </tbody>
+          </table>
+
+        </div>
+        <!-- Ürün Ekleme Formu Sonu -->
+
+
+        <div class="tab-pane fade" id="productform" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+            <h3 class="h3-ort">ÜRÜN GİRİŞİ</h3>
+            <div class="form-boyut">
+                <form action="/product"  method="POST" enctype="multipart/form-data">
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                      <span class="input-group-text"><i class="fas fa-tags"></i></span>
+                        <input class="form-control" type="text" name="ad" id="name" placeholder="Ürün Adı">
+                    </div>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-text"><i class="fas fa-tags"></i></span>
+                        <input class="form-control"  type="text" name="content" id="content" placeholder="Ürün Açıklaması" >
+                    </div>
+
+                    <div id="sizeguide-popup" class="sizeguide">
+                      <a id="span-x" href="#"><i  class="fas fa-times span-close"></i></a>
+                      <img src="../../public/image/guidesize.JPG" alt="">
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-text"><i class="fas fa-tags"></i></span>
+                        <input class="form-control" type="number" name="fiyat" id="fiyat" placeholder="Ürün Fiyatı">
+                    </div>
+                    <div style="margin-bottom: 25px" class="input-group">
+
+                      <select name="category" class="mdb-select md-form select-body">
+                        <option value="" disabled selected>Kategori Belirleyin.</option>
+
+                        <% for(var j=0; j<categorylist.length; j++){%>
+                          <option><%= categorylist[j].categoryadd %></option>
+                          <%}%>
+
+                      </select>
+                      &nbsp;<a class="btn cat-btn" id="cat-add" href="/categoryadd">Kategori ekle</a>
+                    </div>
+                    <div style="margin-bottom: 25px" class="input-group ">
+                      <select name="cinsiyet" class="form-select select-body" aria-label="Default select example">
+                        <option selected disabled hidden >Cinsiyet seçiniz</option>
+                        <option >Kadın</option>
+                        <option >Erkek</option>
+                      </select>
+                  </div>
+
+
+                  <div style="margin-bottom: 25px" class="input-group ">
+                    <select name="color" class="form-select select-body" aria-label="Default select example">
+                      <option selected disabled hidden >Renk Seçiniz</option>
+                      <option >Siyah</option>
+                      <option >Beyaz</option>
+                      <option >Kırmızı</option>
+                      <option >Mavi</option>
+                      <option >Yeşil</option>
+                      <option >Sarı</option>
+                      <option >Turuncu</option>
+                      <option >Mor</option>
+                      <option >Pembe</option>
+                      <option >Gri</option>
+                      <option >Lacivert</option>
+                      <option >Kahverengi</option>
+                      <option >Bordo</option>
+                    </select>
+                </div>
+
+
+
+                  <div style="margin-bottom: 25px" class="input-group ">
+                    <select name="size" class="form-select select-body" aria-label="Default select example">
+                      <option selected disabled hidden >Beden Seçimi Yapınız</option>
+                      <option >X-Small</option>
+                      <option >Small</option>
+                      <option >Medium</option>
+                      <option >Large</option>
+                      <option >X-Large</option>
+                      <option >2X-Large</option>
+
+                    </select>&nbsp;<a class="btn cat-btn" id="size-button" href="#">Size Guide</a>
+                </div>
+
+
+
+                 <!--   -->
+
+                 <span class="btn btn-success fileinput-button">
+                  <span>Fotoğraf Yükleyin</span>
+                  <input type="file" name="images" id="files" multiple accept="image/jpeg, image/png, image/gif,"><br />
+              </span>
+              <output id="Filelist" class="sortable"></output>
+
+
+
+                  <!-- GÖRÜNTÜSÜZ YÜKLEME
+
+                     <div style="margin-bottom: 25px" class="input-group">
+                        <label for="image">Fotoğraf Yükleyin</label>
+                        <input type="file" name="images" id="image" class="form-control-file" multiple>
+                    </div>   -->
+
+
+                     <!-- KÜTÜPHANE KULLANARAK GÖRÜNTÜLÜ YÜKLEME -->
+
+                   <!-- <div class="custom-file-container" data-upload-id="myUniqueUploadId">
+                      <label>Fotoğrafları Yükleyin <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image"> </a></label>
+                      <label class="custom-file-container__custom-file">
+                                  <input  name="images" type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" multiple aria-label="Choose File">
+                                  <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                                  <span class="custom-file-container__custom-file__custom-file-control"></span>
+                      </label>
+
+
+                      <div id='sortable' class="custom-file-container__image-preview"></div>
+                      <input  name="imsort" type='hidden'>
+                  </div>  -->
+
+
+
+
+
+
+                    <input type="submit" class="btn btn-primary" value="Ekle">
+                </form>
+            </div>
+
+      <br><br>
+        </div>
+
+
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <h3>Bilgilendirme</h3>
+
+
+
+
+        </div>
+
+
+      </div>
+
+
+</div>

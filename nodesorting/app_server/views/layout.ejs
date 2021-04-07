@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js" integrity="sha512-5x7t0fTAVo9dpfbp3WtE2N6bfipUwk7siViWncdDoSz2KwOqVC1N9fDxEOzk0vTThOua/mglfF8NO7uVDLRC8Q==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
+
+
+    <!-- <link href="https://canvasjs.com/assets/css/jquery-ui.1.11.2.min.css" rel="stylesheet" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.css">
+    <script src="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
+
+
+    <script>
+
+
+
+
+      window.onload = function () {
+
+
+
+
+
+      // Construct options first and then pass it as a parameter
+      var options1 = {
+        animationEnabled: true,
+        title: {
+          text: "Chart inside a jQuery Resizable Element"
+        },
+        data: [{
+          type: "column", //change it to line, area, bar, pie, etc
+          legendText: "Try Resizing with the handle to the bottom right",
+          showInLegend: true,
+          dataPoints: [
+            { y: 10 },
+            { y: 6 },
+            { y: 14 },
+            { y: 12 },
+            { y: 19 },
+            { y: 14 },
+            { y: 26 },
+            { y: 10 },
+            { y: 22 }
+            ]
+          }]
+      };
+
+      $("#resizable").resizable({
+        create: function (event, ui) {
+          //Create chart.
+          $("#chartContainer1").CanvasJSChart(options1);
+        },
+        resize: function (event, ui) {
+          //Update chart size according to its container size.
+          $("#chartContainer1").CanvasJSChart().render();
+        }
+      });
+
+      }
+
+      // Material Select Initialization
+// $(document).ready(function() {
+// $('.mdb-select').materialSelect();
+// });
+// $(document).ready(function(){
+// $("#but_upload").click(function(){
+// console.log("here 1")
+// var fd = new FormData();
+// var files = $('#file')[0].files;
+
+// // Check file selected or not
+// if(files.length > 0 ){
+//    fd.append('image',$('#file')[0].files[0]);
+
+//    $.ajax({
+//       url: 'product/imageUpload',
+//       type: 'post',
+//       data: fd,
+//       processData: false,
+//       contentType: false,
+//       cache: false,
+//       success: function(response){
+//         console.log("here 3")
+//          if(response != 0){
+//         //   response.forEach(element => $(".preview").append('<img src="'+ element.path +'" id="img" width="100" height="100">'));
+//         // response.forEach(element => $(".preview").append('<input type="hidden" name="images[]" value="'+ element.path +'">'));
+
+//            console.log(response)
+//             $("#img").attr("src",response);
+//             $("#inputfile").val(response);
+//             $(".preview img").show(); // Display image element
+//          }else{
+//             alert('file not uploaded');
+//          }
+//       },
+//    });
+// }else{
+//    alert("Please select a file.");
+// }
+// });
+// });
+      </script>
+
+
+    <title>E-commerce</title>
+  </head>
+  <body>
+
+    <header class="navbar navbar-expand-md navbar-dark navbar-color navbar-fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <h4>ROSE</h4>
+          <!-- <img class="logo horizontal-logo logo-content" src="/uploads/images/Asset 1rose.png" alt="forecastr logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link navbar-li" href="#">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="sidebar-container">
+
+      <ul class="sidebar-navigation">
+        <li class="nav-li">
+          <a class="nav-a" href="/">
+            <i class="fas fa-chart-bar"></i>&nbsp;
+            Veriler
+          </a>
+        </li>
+        <li class="nav-li" id="in" >
+          <a class="nav-a" href="/product">
+            <i class="fas fa-tasks"></i>&nbsp; Ürün Yönetimi
+          </a>
+
+        </li>
+        <li class="nav-li">
+          <a class="nav-a" href="basket">
+            <i class="fas fa-cogs"></i>&nbsp; Ayarlar
+          </a>
+        </li>
+        <li class="nav-li">
+          <a class="nav-a" href="#">
+            <i class="fas fa-info-circle"></i>&nbsp; Bilgi
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
+    <%-body %>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery-ui.1.11.2.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+    <script src="../../public/js/script.js" ></script>
+
+
+
+
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+// $(document).ready(function(){
+// $('#sortable').change(function(){
+//   $param = Array();
+//   $('#sortable div').each(function(){
+// $param.push($(this).data("id"));
+// $(input[name='imsort']).val($param.toString());
+//   });
+
+// });
+
+//   new Sortable(sortable, {
+//     animation: 150,
+//     ghostClass: 'blue-background-class'
+// });
+// });
+
+// var upload = new FileUploadWithPreview('myUniqueUploadId');
+// window.addEventListener("fileUploadWithPreview:imagesAdded", function (e) {
+// console.log(upload.currentFileCount);
+// $counter = 0;
+
+// $('.custom-file-container__image-multi-preview').each(function(){
+//   $(this).css('display','none');
+//   $(this).data('id',$counter);
+//   console.log($(this).data('data-upload-token'));
+//   $counter++;
+// });
+
+// $('#sortable').trigger("change");
+//   });
+
+//I added event handler for the file upload control to access the files properties.
+// $(document).ready(function(){
+//   $( "#imgList" ).sortable();
+//   $( "#imgList" ).disableSelection();
+// });
+
+document.addEventListener("DOMContentLoaded", init, false);
+
+//To save an array of attachments
+var AttachmentArray = [];
+
+//counter for attachment array
+var arrCounter = 0;
+
+//to make sure the error message for number of files will be shown only one time.
+var filesCounterAlertStatus = false;
+
+//un ordered list to keep attachments thumbnails
+var ul = document.createElement("ul");
+ul.className = "thumb-Images";
+ul.id = "imgList";
+
+function init() {
+  //add javascript handlers for the file upload event
+  document
+    .querySelector("#files")
+    .addEventListener("change", handleFileSelect, false);
+}
+
+//the handler for file upload event
+function handleFileSelect(e) {
+  //to make sure the user select file/files
+  if (!e.target.files) return;
+
+  //To obtaine a File reference
+  var files = e.target.files;
+
+  // Loop through the FileList and then to render image files as thumbnails.
+  for (var i = 0, f; (f = files[i]); i++) {
+    //instantiate a FileReader object to read its contents into memory
+    var fileReader = new FileReader();
+
+    // Closure to capture the file information and apply validation.
+    fileReader.onload = (function(readerEvt) {
+      return function(e) {
+        //Apply the validation rules for attachments upload
+        ApplyFileValidationRules(readerEvt);
+
+        //Render attachments thumbnails.
+        RenderThumbnail(e, readerEvt);
+
+        //Fill the array of attachment
+        FillAttachmentArray(e, readerEvt);
+
+        ApplySorting();
+      };
+    })(f);
+
+    // Read in the image file as a data URL.
+    // readAsDataURL: The result property will contain the file/blob's data encoded as a data URL.
+    // More info about Data URI scheme https://en.wikipedia.org/wiki/Data_URI_scheme
+    fileReader.readAsDataURL(f);
+  }
+  document
+    .getElementById("files")
+    .addEventListener("change", handleFileSelect, false);
+}
+
+//To remove attachment once user click on x button
+jQuery(function($) {
+  $("div").on("click", ".img-wrap .close", function() {
+    var id = $(this)
+      .closest(".img-wrap")
+      .find("img")
+      .data("id");
+
+    //to remove the deleted item from array
+    var elementPos = AttachmentArray.map(function(x) {
+      return x.FileName;
+    }).indexOf(id);
+    if (elementPos !== -1) {
+      AttachmentArray.splice(elementPos, 1);
+    }
+
+    //to remove image tag
+    $(this)
+      .parent()
+      .find("img")
+      .not()
+      .remove();
+
+    //to remove div tag that contain the image
+    $(this)
+      .parent()
+      .find("div")
+      .not()
+      .remove();
+
+    //to remove div tag that contain caption name
+    $(this)
+      .parent()
+      .parent()
+      .find("div")
+      .not()
+      .remove();
+
+    //to remove li tag
+    var lis = document.querySelectorAll("#imgList li");
+    for (var i = 0; (li = lis[i]); i++) {
+      if (li.innerHTML == "") {
+        li.parentNode.removeChild(li);
+      }
+    }
+  });
+});
+
+function ApplySorting() {
+  var result = [];
+  var sorting = [];
+  $( "#imgList" ).disableSelection();
+      $( "#imgList" ).sortable({
+        stop: function(){
+
+          $('#imgList li').each(function(){
+            $name = $(this).find('.FileNameCaptionStyle').text();
+            sorting.push($name);
+          });
+
+          if($('form input[name="imagesSort"]').length){
+            $('form input[name="imagesSort"]').val(sorting);
+          }else{
+
+          $('form').append('<input type="hidden" name="imagesSort" value="' + sorting + '" />');
+}
+
+
+        }
+      });
+}
+
+//Apply the validation rules for attachments upload
+function ApplyFileValidationRules(readerEvt) {
+  //To check file type according to upload conditions
+  if (CheckFileType(readerEvt.type) == false) {
+    alert(
+      "The file (" +
+        readerEvt.name +
+        ") does not match the upload conditions, You can only upload jpg/png/gif files"
+    );
+    e.preventDefault();
+    return;
+  }
+
+  //To check file Size according to upload conditions
+  if (CheckFileSize(readerEvt.size) == false) {
+    alert(
+      "The file (" +
+        readerEvt.name +
+        ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+    );
+    e.preventDefault();
+    return;
+  }
+
+  //To check files count according to upload conditions
+  if (CheckFilesCount(AttachmentArray) == false) {
+    if (!filesCounterAlertStatus) {
+      filesCounterAlertStatus = true;
+      alert(
+        "You have added more than 10 files. According to upload conditions you can upload 10 files maximum"
+      );
+    }
+    e.preventDefault();
+    return;
+  }
+}
+
+//To check file type according to upload conditions
+function CheckFileType(fileType) {
+  if (fileType == "image/jpeg") {
+    return true;
+  } else if (fileType == "image/png") {
+    return true;
+  } else if (fileType == "image/gif") {
+    return true;
+  } else {
+    return false;
+  }
+  return true;
+}
+
+//To check file Size according to upload conditions
+function CheckFileSize(fileSize) {
+  if (fileSize < 3000000) {
+    return true;
+  } else {
+    return false;
+  }
+  return true;
+}
+
+//To check files count according to upload conditions
+function CheckFilesCount(AttachmentArray) {
+  //Since AttachmentArray.length return the next available index in the array,
+  //I have used the loop to get the real length
+  var len = 0;
+  for (var i = 0; i < AttachmentArray.length; i++) {
+    if (AttachmentArray[i] !== undefined) {
+      len++;
+    }
+  }
+  //To check the length does not exceed 10 files maximum
+  if (len > 9) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+//Render attachments thumbnails.
+function RenderThumbnail(e, readerEvt) {
+  var li = document.createElement("li");
+  ul.appendChild(li);
+  li.innerHTML = [
+    '<div class="img-wrap"> <span class="close">&times;</span>' +
+      '<img class="thumb" src="',
+    e.target.result,
+    '" title="',
+    escape(readerEvt.name),
+    '" data-id="',
+    readerEvt.name,
+    '"/>' + "</div>"
+  ].join("");
+
+  var div = document.createElement("div");
+  div.className = "FileNameCaptionStyle";
+  li.appendChild(div);
+  div.innerHTML = [readerEvt.name].join("");
+  document.getElementById("Filelist").insertBefore(ul, null);
+}
+
+//Fill the array of attachment
+function FillAttachmentArray(e, readerEvt) {
+  AttachmentArray[arrCounter] = {
+    AttachmentType: 1,
+    ObjectType: 1,
+    FileName: readerEvt.name,
+    FileDescription: "Attachment",
+    NoteText: "",
+    MimeType: readerEvt.type,
+    Content: e.target.result.split("base64,")[1],
+    FileSizeInBytes: readerEvt.size
+  };
+  arrCounter = arrCounter + 1;
+}
+
+
+
+
+
+
+</script>
+
+
+  </body>
+</html>

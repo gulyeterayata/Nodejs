@@ -1,0 +1,83 @@
+
+
+
+    <div class="ana-div">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Banner Ayarları</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#productform" role="tab" aria-controls="nav-profile" aria-selected="false">2</a>
+              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">3</a>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <!-- Banner Ekleme Formu Başlangıcı   -->
+            
+            <div class="tab-pane fade show active container" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <h3 class="h3-ort">BANNER </h3>
+                <div class="form-boyut">
+                    <form action="/basket"  method="POST" enctype="multipart/form-data">
+
+                        <div style="margin-bottom: 25px" class="input-group">
+                          
+                            <input class="form-control" type="text" name="bannercontent" id="name" placeholder="Banner İçin Başlık Ekleyin.">
+                        </div>
+                        
+                         <div style="margin-bottom: 25px" class="input-group">
+                            <label for="image">Fotoğraf Yükleyin</label>
+                            <input type="file" name="image2" id="image" class="form-control-file">
+                        </div> 
+                       
+                        <input type="submit" class="btn btn-primary" value="Ekle">
+                    </form> 
+                </div>
+<br><br><br>
+                <h3 class="h3-ort">Banner Listesi</h3>
+                <table class="table">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">Slogan</th>
+                            <th scope="col">Görsel</th>
+                            <th scope="col">Sil</th>
+                            
+                          </tr>
+                    </thead>
+                    <tbody>
+                        <tbody>
+                            <% for(var i=0; i<banner.length; i++){%>
+                            <tr>
+                              <td><%=banner[i].bannercontent %></td>
+                              <td ><img class="urun-img" src="<%=banner[i].bannerfile %>" alt=""></td>
+                              <td><a href="/basket/bannerDelete/<%=banner[i]._id %>" class="dlt-btn"><i class="far fa-trash-alt"></i></a></td>
+                              
+                            </tr>
+                            <%}%>
+                          </tbody>
+                    </tbody>
+                  </table>
+
+                  <br><br><br><br>
+    
+             
+              
+            </div>
+            <!-- Banner Ekleme Formu Sonu -->
+          
+    
+            <div class="tab-pane fade" id="productform" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum adipisci harum dicta earum sed nulla fuga, expedita quia nam quos quaerat neque laboriosam ullam magni exercitationem atque id natus doloremque sunt omnis reiciendis commodi vel porro! Libero maxime exercitationem rerum, accusantium atque provident quos. Provident doloribus officia recusandae error inventore nulla hic! Dolore magni consequuntur neque ex ut, molestiae libero ullam in quos nobis, amet quisquam cum doloribus molestias. Nihil aperiam voluptate sunt ullam eligendi doloribus doloremque repellat nesciunt voluptatem pariatur, inventore iste, velit quis veritatis at mollitia ea ratione eius quae libero laudantium laborum modi excepturi. Eos, sint vel!
+            </p>
+            </div>
+            
+          
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia numquam magnam inventore. Animi autem sit consectetur possimus eligendi eum officiis molestiae deserunt aliquam iste at quo dolore, quod veritatis magni? Incidunt dolorum tenetur porro mollitia nemo itaque eaque deleniti fugiat!</p>
+            </div>
+          </div>
+              
+          
+          </div>
+          
+    </div>
+    
+    
